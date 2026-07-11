@@ -24,6 +24,10 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/sunfish \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/google/pixel/health \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
+    hardware/google/pixel/thermal \
     hardware/qcom/sm8150/display \
     hardware/qcom/sm8150/gps \
     hardware/qcom/wlan \
@@ -63,6 +67,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # Enforce native interfaces of product partition as VNDK
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -85,7 +90,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
     $(LOCAL_PATH)/init.sensors.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.sensors.sh \
     $(LOCAL_PATH)/thermal-engine-$(PRODUCT_HARDWARE).conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-$(PRODUCT_HARDWARE).conf \
-    $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     $(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh \
 
 # Partitions
@@ -346,7 +351,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-sunfish \
-    android.hardware.health@2.1-service
+    android.hardware.health@2.1-service \
+    libpixelhealth \
+    libpixelatoms_defs
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
