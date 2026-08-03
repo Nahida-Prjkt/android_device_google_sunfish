@@ -16,6 +16,10 @@ debug.gralloc.enable_fb_ubwc=1
 # system props for the cne module
 persist.vendor.cne.feature=1
 
+ro.product.marketname=Google Pixel 4a
+ro.infinity.soc=Snapdragon 730G
+ro.infinity.camera=12.2MP
+
 # system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
