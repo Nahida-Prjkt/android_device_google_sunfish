@@ -227,3 +227,7 @@ include device/google/sunfish/BoardConfigLineage.mk
 
 # Ship Lunaris Dolby
 include vendor/lunaris/dolby/BoardConfigDolby.mk
+
+# Props
+DEVICE_PATH := device/google/sunfish
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
