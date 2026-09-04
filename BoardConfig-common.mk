@@ -189,7 +189,10 @@ AUDIO_FEATURE_ENABLED_CS35L41 := true
 AUDIO_FEATURE_ENABLED_CS35L41_CALIBRATION_TOOL := true
 
 # Vendor Interface Manifest
-DEVICE_MANIFEST_FILE := device/google/sunfish/manifest.xml
+DEVICE_MANIFEST_FILE := \
+    device/google/sunfish/manifest.xml \
+    vendor/lunaris/dolby/vintf/dolby_manifest.xml
+
 DEVICE_MATRIX_FILE := device/google/sunfish/compatibility_matrix.xml
 # Install product specific framework compatibility matrix
 # (TODO: b/169535506) This includes the FCM for system_ext and product partition.
@@ -220,3 +223,6 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 11429478400
 -include vendor/google_devices/sunfish/proprietary/BoardConfigVendor.mk
 
 include device/google/sunfish/BoardConfigLineage.mk
+
+# Ship Lunaris Dolby
+include vendor/lunaris/dolby/BoardConfigDolby.mk
