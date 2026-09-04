@@ -135,3 +135,6 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/lib/libcodec2_hidl_plugin_stub.so \
     system/lib64/libcodec2_hidl@1.0.so \
     system/lib64/libcodec2_hidl_plugin_stub.so
+
+# Ship Lunaris Dolby
+$(call inherit-product, vendor/lunaris/dolby/dolby.mk)
